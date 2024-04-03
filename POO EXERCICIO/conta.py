@@ -11,10 +11,6 @@ class Conta(ABC):
     def agencia(self):
         return self._agencia
 
-    @abstractmethod
-    def sacar(self, valor):
-        pass
-
     @property
     def conta(self):
         return self._conta
@@ -22,22 +18,25 @@ class Conta(ABC):
     @property
     def saldo(self):
         return self._saldo
-
+    
     @saldo.setter
     def saldo(self, valor):
         if not isinstance(valor, (int, float)):
-            raise ValueError('Valor do saldo precisa ser numérico')
+            raise ValueError('Valor do saldo precisa ser númerico')
         self._saldo = valor
 
-    def detalhes(self, msg=''):
+    def detalhes(self):
         print(f'Agência: {self._agencia}', end=' ')
         print(f'Conta: {self._conta}', end=' ')
-        print(f'Saldo: {self._saldo:.2f} {msg}')
+        print(f'Saldo: {self._saldo}', end=' ')
 
     def depositar(self, valor):
         if not isinstance(valor, (int, float)):
-            raise ValueError('Valor do depósito precisa ser numérico')
-
+            raise ValueError('Valor do depósito precisa ser númerico')
+        
         self._saldo += valor
         self.detalhes()
-        
+
+    @abstractmethod
+    def sacar(self, valor):
+        pass

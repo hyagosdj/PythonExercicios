@@ -1,5 +1,6 @@
-from cp import ContaPoupanca
 from cc import ContaCorrente
+from cp import ContaPoupanca
+
 # Não se pode instanciar uma conta, tem que instanciar a especialização da conta.
 # from conta import Conta
 
@@ -19,3 +20,4 @@ cc.depositar(100)
 cc.sacar(250)
 cc.sacar(500)
 cc.depositar(1000)
+# cc.sacar()
