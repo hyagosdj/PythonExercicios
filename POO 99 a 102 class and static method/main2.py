@@ -9,22 +9,24 @@ class Connection:
         self.user = None
         self.password = None
 
-    def set_user(self, user): # método normal, recebe self.
+    def set_user(self, user):  # método normal, recebe self.
         self.user = user
 
     def set_password(self, password):
         self.password = password
 
-    @classmethod # metodo de classe, recebe cls
+    @classmethod  # metodo de classe, recebe cls
     def create_with_auth(cls, user, password):
         connection = cls()
         connection.user = user
         connection.password = password
         return connection
-    
-    @staticmethod # Ele é uma função dentro da classe | ele não recebe nem self, nem cls | Ele serve por conta de organização, quando precisa deixar ele dentro da classe.
+
+    # Ele é uma função dentro da classe | ele não recebe nem self, nem cls | Ele serve por conta de organização, quando precisa deixar ele dentro da classe.
+    @staticmethod
     def log(msg):
         print('LOG', msg)
+
 
 # c1 = Connection()
 c1 = Connection.create_with_auth('luiz', '1234')
